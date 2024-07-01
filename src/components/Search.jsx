@@ -17,7 +17,7 @@ export const Search = ({ setUserQuery }) => {
   return (
       <SearchBar>
           <SearchIcon></SearchIcon>
-          <SearchInput type="text" placeholder="Search for a country..." onChange={(e) => setUserQuery(e.target.value.toLowerCase())}/>
+          <SearchInput type="text" placeholder="Search for a country..." onChange={(event) => setUserQuery(event.target.value.toLowerCase())}/>
     </SearchBar>
   )
 }

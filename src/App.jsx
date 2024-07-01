@@ -16,7 +16,7 @@ function App() {
           <Search setUserQuery={setUserQuery} />
           <Filter />
         </div>
-        < CardsContainer userQuery={userQuery} />
+        <CardsContainer userQuery={userQuery} />
       </main>
     </>
   )
