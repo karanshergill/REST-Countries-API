@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Card } from './Card'
-// import countries from './data/countries_data';
 
 export const CardsContainer = ({ userQuery }) => {
   const [countries, setCountries] = useState([])
@@ -21,6 +20,7 @@ export const CardsContainer = ({ userQuery }) => {
           <Card
             key={country.cca3}
             flag={country.flags.svg}
+            alt={country.flags.alt}
             name={country.name.common}
             population={country.population}
             region={country.region}

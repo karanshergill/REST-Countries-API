@@ -21,11 +21,11 @@ const CardTextField = styled.p.attrs({
     className: 'text-sm font-medium'
 })``;
 
-export const Card = ({ name, population, region, capital, flag }) => {
+export const Card = ({ name, population, region, capital, flag, alt }) => {
     return (
-        <a href="#">
+        <a href={ `/details?name=${name.toLowerCase()}` }>
             <CardContainer>
-                <CardImage src={ flag } alt={`${name} Flag`} />
+                <CardImage src={ flag } alt={ alt } />
                 <CardContent>
                     <CardTitle>{name}</CardTitle>
                     <CardTextField><span className='text-sm font-bold'>Population: </span>{population.toLocaleString('en-IN')}</CardTextField>

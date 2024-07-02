@@ -1,7 +1,10 @@
 import React from 'react'
+import App from './App.jsx'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import App from './App.jsx'
+import { Home } from './pages/Home.jsx'
+import { Details } from './pages/Details.jsx'
+import { Error404 } from './pages/Error404.jsx'
 import './App.css'
 import './index.css'
 
@@ -9,11 +12,17 @@ import './index.css'
 const browserRouter = createBrowserRouter([
   {
     path: '/',
-    element: <App />
-  },
-  {
-    path: '/country',
-    element: <App />
+    element: <App />,
+    errorElement: <Error404 />,
+    children: [
+      {
+        path: '/',
+        element: <Home />
+      },
+      {
+        path: '/details',
+        element: <Details />
+      }]
   },
 ])
 
