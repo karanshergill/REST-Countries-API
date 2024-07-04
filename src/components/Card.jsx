@@ -1,5 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const CardContainer = styled.div.attrs({
     className: 'flex flex-col shadow-md rounded-b-lg overflow-hidden hover:scale-105 transition-transform duration-200 cursor-pointer hover:shadow-lg'
@@ -21,18 +22,22 @@ const CardTextField = styled.p.attrs({
     className: 'text-sm font-medium'
 })``;
 
+const CardTextValue = styled.span.attrs({
+    className: 'text-sm font-bold'
+})``;
+
 export const Card = ({ name, population, region, capital, flag, alt }) => {
     return (
-        <a href={ `/details?name=${name.toLowerCase()}` }>
+        <Link to={`/details/${encodeURIComponent(name.toLowerCase())}`}>
             <CardContainer>
-                <CardImage src={ flag } alt={ alt } />
+                <CardImage src={flag} alt={alt} />
                 <CardContent>
                     <CardTitle>{name}</CardTitle>
-                    <CardTextField><span className='text-sm font-bold'>Population: </span>{population.toLocaleString('en-IN')}</CardTextField>
-                    <CardTextField><span className='text-sm font-bold'>Region: </span>{region}</CardTextField>
-                    <CardTextField><span className='text-sm font-bold'>Capital: </span>{capital || 'N/A'}</CardTextField>
+                    <CardTextField><CardTextValue>Population: </CardTextValue>{population.toLocaleString('en-IN')}</CardTextField>
+                    <CardTextField><CardTextValue>Region: </CardTextValue>{region}</CardTextField>
+                    <CardTextField><CardTextValue>Capital: </CardTextValue>{capital || 'N/A'}</CardTextField>
                 </CardContent>
             </CardContainer>
-        </a>
-    )
-}
+        </Link>
+    );
+};

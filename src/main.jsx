@@ -20,7 +20,7 @@ const browserRouter = createBrowserRouter([
         element: <Home />
       },
       {
-        path: '/details',
+        path: 'details/:countryName',
         element: <Details />
       }]
   },
